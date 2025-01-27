@@ -1,0 +1,128 @@
+<html>
+	<head>
+    <meta lang="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=yes"/>
+		<title>
+			Net Weight Calculator
+		</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+     <link rel="stylesheet" href="css/index.css">
+<link rel="icon" type="image/x-icon" href="/images/icon.jpg">
+	</head>
+	<body>
+
+<center>
+<div id = "overlay" style="display:none;background:rgba(0,255,0,0.3);padding:0;margin:auto;position:absolute; left:0; right:0; top:0; bottom:0;position:fixed;z-index:2;height:100%;width:100%;"></div>
+<div id = "overlay2" style="display:none;background:rgba(0,255,0,0.3);padding:0;margin:auto;position:absolute; left:0; right:0; top:0; bottom:0;position:fixed;z-index:4;height:100%;width:100%;"></div>
+<div id="inputDiv" class="" style="display:none; background:white;padding:0;width:85%;box-shadow:0 0 10px 1px rgba(0,0,0,0.5);max-width:600px; margin:auto;z-index:5;height:fit-content;max-height:600px;min-height:200px;position:absolute; left:0; right:0; top:0; text-transform: lowercase;font-size:18px; bottom:0;position:fixed;border-radius:10px">
+<div id = "inputDivTxt" style="text-align:left; padding:20px;">
+Enter Gross Weight
+</div>
+<input id="inputFld" type="email" style="width:90%;fit-content;font-size:16px;outline:none;border:none;border-bottom:2px solid blue;"/>
+<div id = "searchesArea" style="display:none;height:auto;border:none; padding:0px; width:90%; max-height:140px;overflow:scroll;">
+</div>
+<div id="inputAnswers" style="position:absolute;background:;margin:auto;bottom:0;left:0;right:0;padding:10px;display:flex;flex-direction:row;align-items:center;justify-content:right;">
+<div id="inputCancel"style="height:45px;width:100px;border-radius:20px;font-weight:bold;color:white; display :flex;align-items:center;justify-content:center;background:rgba(0,200,0,0.8);margin:5px;">cancel</div>
+<div id="inputOk" style="height:45px;width:100px;border-radius:20px;font-weight:bold;color:white; display :flex;align-items:center;justify-content:center;background:rgba(255,0,0,0.8);margin:5px;">ok</div>
+</div>
+</div>
+<div id="spsA" class="alert alert-warning" style="display:none;padding:0;width:85%;box-shadow:0 0 5px 1px rgba(0,0,0,0.5);max-width:600px; margin:auto;z-index:3;height:80vh;max-height:600px;position:absolute; left:0; right:0; top:0; bottom:0;position:fixed;">
+ <div id="closerCont" class="alert alert-primary" style="border:none;outline:none;box-shadow:none;padding:7px;margin:0;position:relative;background:transparent">
+<div id="closer" style="border:1px solid black; border-radius:50%; background: transparent;color:red;width:50px;height:50px;font-size:33px;font-weight:bold;margin-left: calc(100% - 50px)">X</div>
+</div>
+<div class="alert alert-primary" style="background:transparent; text-align:center; font-size:16px; border-radius:5px; border:1px solid grey; width:90%;padding:10px; padding-left:0; margin-bottom:2px;color:black;font-weight:bold" id="supplier_adder"> Add a new supllier</div>
+<div id="spListArea" style="height:calc(100% - 115px); background:;overflow:scroll"></div>
+</div>
+<h2 class = "text text-danger" style="display:flex; align-items:center; justify-content:left;flex-direction:row;text-align:left; margin:10px auto; margin-bottom:0" id="title">
+<div id="mOpn" style="display:flex; align-items:center; justify-content:left;flex-direction:column;margin:5px;border-radius:5px;width:40px; height:40px; background:;">
+<div style="height:3px;width:70%;margin:5px auto; background: blue;"></div><div style="height:3px;width:70%;margin:5px auto; background: blue;"></div><div style="height:3px;width:70%;margin:5px auto; background: blue;"></div>
+</div>
+Net Weight Calculator
+</h2>
+<div id = "dateArea" style="display:; color:green; font-weight:bold;margin-bottom:10px"></div>
+<table class="table table-bordered" style="max-width:800px;border: 1px solid transparent;margin:5px 0;padding:0;display:none;" id="table_new">
+<tr>
+<td colspan="4">
+<input type="submit" value="New Vehicle" class="alert alert-danger" style="outline:none; font-weight:bold; text-align: center; display:none; width:100%; padding:10px; margin:0" id="new_vehicle_text"/></td>
+</tr>
+</table>
+<table class="table table-bordered" style="border: 1px solid blue;max-width:800px;">
+<tr>
+<th class = "text text-primary" colspan="3">
+<span id="currSN" class="text text-danger" style="font-weight:normal"></span> - Pallet Number : <span class = "text text-danger" id="new_record_text">
+1
+</span>
+</th>
+</tr>
+<tr>
+<th class = "text text-primary">
+Pallet Weight
+</th>
+<th class = "text text-primary" id="no_of_crates_th">
+Number of Crates
+</th>
+<th class = "text text-primary">
+Gross Weight
+</th>
+</tr>
+<tr>
+<td>
+<select class="alert alert-primary" style="outline:none; width:auto; padding:10px; margin:0" id="pallet_weight_form">
+ <option value="18" selected>
+  18Kgs Pallet
+ </option>
+<option value="20">
+  20Kgs Pallet
+ </option>
+<option value="22">
+  22Kgs Pallet
+ </option>
+</select>
+</td>
+<td>
+<input class="alert alert-primary" style="outline:none; width:100%; padding:10px; margin:0" id="crate_count_form" inputmode="none" value="35"/>
+</td>
+<td>
+<input inputmode="none" class="alert alert-primary" style="outline:none; width:100%; padding:10px; margin:0" id="gross_weight_form"/>
+</td>
+</tr>
+<tr>
+<tr>
+<td colspan="3" id="buttons_area">
+
+</td>
+</tr>
+
+</table>
+
+
+
+<table class="table table-light table-striped table-bordered" id="records_table" style="display:none;max-width:800px;">
+<tr>
+<th>
+Pallet Tare
+</th>
+<th>
+Crate Count
+</th>
+<th>
+Gross Weight
+</th>
+<th></th>
+</tr>
+</table>
+
+<table class="table table-light table-bordered" id="summary_table" style="display:none;max-width:800px;">
+<tr>
+<th>Total Pallets</th>
+<th>Total Crates</th>
+<th>Total Gross Weight</th>
+</tr>
+
+</table>
+</center>
+<script rel="javascript" src="js/jquery-3.7.0.min.js"></script>
+<script rel="javascript" src="js/moment.min.js"></script>
+<script src="js/main.js"></script>
+	</body>
+</html>
