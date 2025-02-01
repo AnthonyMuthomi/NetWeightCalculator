@@ -514,7 +514,7 @@ summary_table_html += pallet_count;
 summary_table_html += "(" + pallet_tare + " kgs)";
 summary_table_html += "</td><td>";
 summary_table_html += crate_count;
-summary_table_html += "</td><td>";
+summary_table_html += "</td><td style='text-decoration: line-through; opacity:0.5'>";
 summary_table_html += total_gross_w;
 summary_table_html += "</td></tr>";
 
